@@ -58,6 +58,45 @@ namespace console_library.Models
             }
         }
 
+        internal void ReturnBook()
+        {
+            PrintBooks(false);
+            Console.WriteLine("Which book?");
+            string choice = Console.ReadLine();
+            int index;
+            if (int.TryParse(choice, out index) != false && index - 1 < Books.Count && index - 1 > -1)
+            {
+                Book book = Books[index - 1];
+
+                if (book.Available)
+                {
+                    Console.WriteLine("That's been returned already, c'mon man!");
+                }
+                else
+                {
+                    book.Available = true;
+                    Console.WriteLine($"You returned {book.Title}.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("You can't do that sir. Try a different index");
+            }
+        }
+
+        internal void PrintBooks(bool available)
+        {
+            Console.WriteLine("Books that are checked out: ");
+            for (int i = 0; i < Books.Count; i++)
+            {
+                Book book = Books[i];
+                if (book.Available = available)
+                {
+                    Console.WriteLine($"{i + 1} - {book.Title}");
+                }
+            }
+        }
+
         internal void PrintBooks()
         {
             Console.WriteLine("Available Books: ");

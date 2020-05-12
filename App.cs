@@ -35,6 +35,9 @@ namespace console_library
                     Console.WriteLine("Read again soon!");
                     Console.ReadLine();
                     break;
+                case "return":
+                    Library.ReturnBook();
+                    break;
             }
         }
     }
