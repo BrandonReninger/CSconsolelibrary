@@ -17,14 +17,28 @@ namespace console_library.Models
             Books = new List<Book>();
         }
 
-        internal void Setup()
+        public void Setup()
         {
             Console.WriteLine("Welcome to The Library");
-
+            //Library.PrintBooks();
+            Book whereTheSidewalkEnds = new Book("Where the Sidewalk Ends", "Shel Silverstein");
+            Book mossFlower = new Book("Mossflower", "Brian Jacques");
+            Book theRoad = new Book("The Road", "Cormac McCarthy");
+            Book theUniverseInaNutShell = new Book("The Universe in a Nutshell", "Stephen Hawking");
+            Books.Add(whereTheSidewalkEnds);
+            Books.Add(mossFlower);
+            Books.Add(theRoad);
+            Books.Add(theUniverseInaNutShell);
         }
 
-        internal void PrintBooks()
+        internal void RentBook()
         {
+            throw new NotImplementedException();
+        }
+
+        internal void PrintBooks(bool available)
+        {
+            Console.WriteLine("Available Books: ");
             for (int i = 0; i < Books.Count; i++)
             {
                 Console.WriteLine($"{i + 1} {Books[i].Title} - {Books[i].Author}");
