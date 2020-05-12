@@ -6,7 +6,7 @@ namespace console_library
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Book whereTheSidewalkEnds = new Book("Where the Sidewalk Ends", "Shel Silverstein"); 
         }
     }
 }
