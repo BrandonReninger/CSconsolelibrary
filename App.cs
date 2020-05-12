@@ -30,9 +30,10 @@ namespace console_library
                 case "rent":
                     Library.RentBook();
                     break;
-                case "quit":
+                case "leave":
                     Running = false;
                     Console.WriteLine("Read again soon!");
+                    Console.ReadLine();
                     break;
             }
         }
