@@ -34,7 +34,28 @@ namespace console_library.Models
         internal void RentBook()
         {
             PrintBooks();
+            Console.WriteLine("Which Book?");
+            string choice = Console.ReadLine();
 
+            int index;
+            if (int.TryParse(choice, out index) != false && index - 1 < Books.Count && index - 1 > -1)
+            {
+                Book book = Books[index - 1];
+
+                if (!book.Available)
+                {
+                    Console.WriteLine("That book is checked out chief.");
+                }
+                else
+                {
+                    book.Available = false;
+                    Console.WriteLine($"You checked out {book.Title}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("That's an invalid choice brodawg!");
+            }
         }
 
         internal void PrintBooks()
