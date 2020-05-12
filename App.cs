@@ -7,6 +7,7 @@ namespace console_library
     {
         public Library Library { set; get; }
         public bool Availabe { set; private get; }
+        public bool Running { set; private get; }
         public void Run()
         {
             Library = new Library("Title", "Author");
@@ -28,6 +29,10 @@ namespace console_library
             {
                 case "rent":
                     Library.RentBook();
+                    break;
+                case "quit":
+                    Running = false;
+                    Console.WriteLine("Read again soon!");
                     break;
             }
         }

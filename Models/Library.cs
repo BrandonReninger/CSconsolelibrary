@@ -33,10 +33,11 @@ namespace console_library.Models
 
         internal void RentBook()
         {
-            throw new NotImplementedException();
+            PrintBooks();
+
         }
 
-        internal void PrintBooks(bool available)
+        internal void PrintBooks()
         {
             Console.WriteLine("Available Books: ");
             for (int i = 0; i < Books.Count; i++)
