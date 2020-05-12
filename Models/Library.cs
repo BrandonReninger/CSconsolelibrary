@@ -49,7 +49,7 @@ namespace console_library.Models
                 else
                 {
                     book.Available = false;
-                    Console.WriteLine($"You checked out {book.Title}");
+                    Console.WriteLine($"You checked out {book.Title} by {book.Author}");
                 }
             }
             else
@@ -75,7 +75,7 @@ namespace console_library.Models
                 else
                 {
                     book.Available = true;
-                    Console.WriteLine($"You returned {book.Title}.");
+                    Console.WriteLine($"You returned {book.Title} by {book.Author}.");
                 }
             }
             else

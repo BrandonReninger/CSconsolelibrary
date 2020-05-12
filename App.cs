@@ -38,6 +38,9 @@ namespace console_library
                 case "return":
                     Library.ReturnBook();
                     break;
+                default:
+                    Console.WriteLine("Invalid Selection");
+                    break;
             }
         }
     }
