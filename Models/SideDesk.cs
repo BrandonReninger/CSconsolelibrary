@@ -28,7 +28,36 @@ namespace console_library.Models
 
             while (buying)
             {
+                System.Console.WriteLine("Type in precisely the item you'd like to buy or type \"leave\" to exit side desk");
+                string choice = Console.ReadLine();
+                if (choice.ToLower() == "leave")
+                {
+                    System.Console.WriteLine("Welp see you later, don't tell anyone about our illegal inventory.");
+                    buying = false;
+                }
+                else
+                {
+                    PurchaseItem(choice);
+                }
+            }
+        }
 
+        private void PurchaseItem(string itemName)
+        {
+            Item foundItem = Inventory.Find(item => item.Title.ToLower() == itemName.ToLower());
+            if (foundItem != null)
+            {
+                if (foundItem.Quantity < 1)
+                {
+                    System.Console.WriteLine($"Sorry we're all outta {foundItem.Title}.");
+                    return;
+                }
+                foundItem.Quantity--;
+                System.Console.WriteLine($"You bought {foundItem.Title} for {foundItem.Price}, there's {foundItem.Quantity} left.");
+            }
+            else
+            {
+                System.Console.WriteLine($"What is {itemName}?");
             }
         }
 
