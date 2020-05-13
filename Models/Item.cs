@@ -1,6 +1,8 @@
+using console_library.Interfaces;
+
 namespace console_library.Models
 {
-    public class Item : BaseEntity
+    public class Item : BaseEntity, IBuyable
     {
         // public string Title { get; set; }
         public decimal Price { get; private set; }
@@ -11,6 +13,11 @@ namespace console_library.Models
             // Title = title;
             Price = price;
             Quantity = quantity;
+        }
+
+        public void Purchase()
+        {
+            System.Console.WriteLine($"You purchased {Title}, it's all yours.");
         }
     }
 }

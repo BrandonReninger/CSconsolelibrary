@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using console_library.Interfaces;
 
 namespace console_library.Models
 {
     public class Library : BaseEntity
     {
         private List<Book> Books { get; set; }
+        public List<IBuyable> Cart { get; set; }
         public SideDesk SideDesk { get; private set; }
 
         // public string Title { get; private set; }
@@ -17,6 +19,7 @@ namespace console_library.Models
             Author = author;
             Books = new List<Book>();
 
+
             SideDesk = new SideDesk();
         }
 
@@ -24,14 +27,25 @@ namespace console_library.Models
         {
             Console.WriteLine("Welcome to The Library");
             //Library.PrintBooks();
-            Book whereTheSidewalkEnds = new Book("Where the Sidewalk Ends", "Shel Silverstein");
-            Book mossFlower = new Book("Mossflower", "Brian Jacques");
-            Book theRoad = new Book("The Road", "Cormac McCarthy");
-            Book theUniverseInaNutShell = new Book("The Universe in a Nutshell", "Stephen Hawking");
+            Book whereTheSidewalkEnds = new Book("Where the Sidewalk Ends", "Shel Silverstein", 19.99m);
+            Book mossFlower = new Book("Mossflower", "Brian Jacques", 9.99m);
+            Book theRoad = new Book("The Road", "Cormac McCarthy", 14.99m);
+            Book theUniverseInaNutShell = new Book("The Universe in a Nutshell", "Stephen Hawking", 4.99m);
             Books.Add(whereTheSidewalkEnds);
             Books.Add(mossFlower);
             Books.Add(theRoad);
             Books.Add(theUniverseInaNutShell);
+
+            Cart = new List<IBuyable>();
+            Item plasmasword = new Item("Plasma Sword", 450.00m, 20);
+            Book theodyssey = new Book("The Odyssey", "Homer", 0.99m);
+            Cart.Add(plasmasword);
+            Cart.Add(theodyssey);
+
+            foreach (IBuyable cartItem in Cart)
+            {
+                cartItem.Purchase();
+            }
         }
 
         public void VisitSideDesk()
