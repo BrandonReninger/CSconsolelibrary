@@ -17,6 +17,8 @@ namespace console_library.Models
             Books = new List<Book>();
         }
 
+        public SideDesk Sidedesk { get; private set; }
+
         public void Setup()
         {
             Console.WriteLine("Welcome to The Library");
@@ -56,6 +58,11 @@ namespace console_library.Models
             {
                 Console.WriteLine("That's an invalid choice brodawg!");
             }
+        }
+
+        internal void VisitSideDesk()
+        {
+
         }
 
         internal void ReturnBook()
