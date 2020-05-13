@@ -23,7 +23,7 @@ namespace console_library
 
         private void MakeSelection()
         {
-            System.Console.WriteLine("What would you like to do? Rent / Return / Leave");
+            System.Console.WriteLine("What would you like to do? Rent / Return / Leave/ Shop");
             string choice = Console.ReadLine();
             switch (choice.ToLower())
             {

@@ -62,7 +62,7 @@ namespace console_library.Models
 
         internal void VisitSideDesk()
         {
-
+            SideDesk.VisitSideDesk();
         }
 
         internal void ReturnBook()
