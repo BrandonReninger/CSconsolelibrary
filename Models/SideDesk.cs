@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace console_library.Models
 {
-    public class SideDesk
+    public class SideDesk : BaseEntity
     {
         public List<Item> Inventory { get; private set; } = new List<Item>();
 
-        public SideDesk()
+        public SideDesk() : base("Greasy Library")
         {
             Item popularscience = new Item("Popular Science", 4.99m, 6);
             Item battlefield5 = new Item("Battlefield 5", 29.99m, 3);

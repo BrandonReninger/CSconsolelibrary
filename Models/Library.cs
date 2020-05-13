@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 namespace console_library.Models
 {
-    public class Library
+    public class Library : BaseEntity
     {
         private List<Book> Books { get; set; }
         public SideDesk SideDesk { get; private set; }
 
-        public string Title { get; private set; }
+        // public string Title { get; private set; }
         public string Author { get; private set; }
 
-        public Library(string title, string author)
+        public Library(string title, string author) : base(title)
         {
-            Title = title;
+            // Title = title;
             Author = author;
             Books = new List<Book>();
 
