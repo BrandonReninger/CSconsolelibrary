@@ -16,6 +16,8 @@ namespace console_library.Models
             Title = title;
             Author = author;
             Books = new List<Book>();
+
+            SideDesk = new SideDesk();
         }
 
         public void Setup()
