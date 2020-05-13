@@ -1,4 +1,4 @@
-namespace console_library
+namespace console_library.Models
 {
     public class Item
     {

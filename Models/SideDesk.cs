@@ -1,13 +1,48 @@
 using System;
+using System.Collections.Generic;
 
-namespace console_library
+namespace console_library.Models
 {
     public class SideDesk
     {
-        internal static void VisitSideDesk()
-        {
-            System.Console.WriteLine("Welcome to the secret library stash, buy whatevs you want mang.");
+        public List<Item> Inventory { get; private set; } = new List<Item>();
 
+        public SideDesk()
+        {
+            Item popularscience = new Item("Popular Science", 4.99m, 6);
+            Item battlefield5 = new Item("Battlefield 5", 29.99m, 3);
+            Item guinnessdraught = new Item("Guinness Draught", 1.99m, 50);
+            Item katana = new Item("Katana", 500.00m, 10);
+            Item fakelibrarycard = new Item("Fake Library Card", 999.99m, 2);
+            Inventory.Add(popularscience);
+            Inventory.Add(battlefield5);
+            Inventory.Add(guinnessdraught);
+            Inventory.Add(katana);
+            Inventory.Add(fakelibrarycard);
+        }
+        internal void VisitSideDesk()
+        {
+            System.Console.WriteLine("Wilkommen to the secret library stash, buy whatevs you want mang.");
+            PrintItems();
+            bool buying = true;
+
+            while (buying)
+            {
+
+            }
+        }
+
+        public void PrintItems()
+        {
+            System.Console.WriteLine("In stock items:");
+            for (int i = 0; i < Inventory.Count; i++)
+            {
+                Item item = Inventory[i];
+                if (item.Quantity > 0)
+                {
+                    Console.WriteLine($"{i + 1} - {item.Title}");
+                }
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ namespace console_library.Models
     public class Library
     {
         private List<Book> Books { get; set; }
+        public SideDesk SideDesk { get; private set; }
 
         public string Title { get; private set; }
         public string Author { get; private set; }
@@ -16,8 +17,6 @@ namespace console_library.Models
             Author = author;
             Books = new List<Book>();
         }
-
-        public SideDesk Sidedesk { get; private set; }
 
         public void Setup()
         {
@@ -31,6 +30,11 @@ namespace console_library.Models
             Books.Add(mossFlower);
             Books.Add(theRoad);
             Books.Add(theUniverseInaNutShell);
+        }
+
+        public void VisitSideDesk()
+        {
+            SideDesk.VisitSideDesk();
         }
 
         internal void RentBook()
@@ -58,11 +62,6 @@ namespace console_library.Models
             {
                 Console.WriteLine("That's an invalid choice brodawg!");
             }
-        }
-
-        internal void VisitSideDesk()
-        {
-            SideDesk.VisitSideDesk();
         }
 
         internal void ReturnBook()
